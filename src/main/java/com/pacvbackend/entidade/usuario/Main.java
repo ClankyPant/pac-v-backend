@@ -4,11 +4,11 @@ public class Main {
 	
 	public static void main(String[] args) {
 		try {
-			UsuarioDAO t = new UsuarioDAO();
-			Usuario user = new Usuario();
+			UsuarioService t = new UsuarioService();
+			UsuarioEntity user = new UsuarioEntity();
 			user.setNome("Luis");
 			
-			t.salvar(user);
+			t.save(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
