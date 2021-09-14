@@ -1,7 +1,10 @@
-package com.pacvbackend.entidade.usuario;
+package com.pacvbackend.service.usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.pacvbackend.entity.usuario.UsuarioEntity;
+import com.pacvbackend.repository.usuario.UsuarioRepository;
 
 @Service
 public class UsuarioService {

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pacvbackend.entidade.usuario.UsuarioEntity;
-import com.pacvbackend.entidade.usuario.UsuarioService;
+import com.pacvbackend.entity.usuario.UsuarioEntity;
+import com.pacvbackend.service.usuario.UsuarioService;
 
 @RestController
 @Component
