@@ -1,4 +1,4 @@
-package com.pacvbackend.entity.usuario;
+package com.pacvbackend.entidade.usuario;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
