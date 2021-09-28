@@ -1,7 +1,7 @@
 package com.pacvbackend.entidade.item.condPagto;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.OneToOne;
 
 import com.pacvbackend.entidade.condpagto.CondPagtoEntity;
 import com.pacvbackend.entidade.item.ItemEntity;
@@ -13,11 +13,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "itemCondPagto")
 public class ItemCondPagtoEntity extends AbstractBean {
 	
+	@OneToOne
 	private ItemEntity item;
-
+	
+	@OneToOne
 	private CondPagtoEntity condPagto;
 	
 	private double percJuros;

@@ -1,10 +1,8 @@
 package com.pacvbackend.entidade.usuario;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import com.pacvbackend.entidade.utils.AbstractBean;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,11 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "usuario")
-public class UsuarioEntity {
-	
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+public class UsuarioEntity extends AbstractBean {
 	
 	private String nome;
 	
