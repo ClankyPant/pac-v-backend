@@ -9,34 +9,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pacvbackend.entidade.usuario.UsuarioEntity;
-import com.pacvbackend.entidade.usuario.UsuarioService;
+import com.pacvbackend.entidade.item.condPagto.ItemCondPagtoEntity;
+import com.pacvbackend.entidade.item.condPagto.ItemCondPagtoService;
+
 
 @RestController
 @Component
-@RequestMapping("/usuario")
-public class UsuarioController {
-	
+@RequestMapping("/itemCondPagto")
+public class ItemCondPagtoController {
+
 	@Autowired
 	@SuppressWarnings("unused")
-	private UsuarioService service;
+	private ItemCondPagtoService service;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public UsuarioEntity getUsuario(@RequestParam(value="id") Long id) throws Exception {
-			return service.getById(id);
+	public ItemCondPagtoEntity getItemCondPagto(@RequestParam(value="id") Long id) throws Exception {
+		return service.findById(id);
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public void saveUsuario(@RequestBody UsuarioEntity user) {
+	public void saveItemCondPagto(@RequestBody ItemCondPagtoEntity itemCondPagto) {
 		try {
-			service.save(user);
+			service.save(itemCondPagto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.DELETE)
-	public void deleteUsuario(@RequestParam(value="id") Long id) {
+	public void deleteItemCondPagto(@RequestParam(value="id") Long id) {
 		try {
 			service.delete(id);
 		} catch (Exception e) {
@@ -45,9 +46,9 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public void updateUsuario(@RequestParam(value = "id") Long id ,@RequestBody UsuarioEntity user) {
+	public void updateItemCondPagto(@RequestParam(value = "id") Long id ,@RequestBody ItemCondPagtoEntity itemCondPagto) {
 		try {
-			service.save(user);
+			service.save(itemCondPagto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

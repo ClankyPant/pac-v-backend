@@ -13,8 +13,8 @@ public class UsuarioService {
 		repository.save(user);
 	}
 	
-	public void delete(UsuarioEntity user) throws Exception {
-		repository.delete(user);
+	public void delete(Long id) throws Exception {
+		repository.deleteById(id);
 	}
 	
 	public UsuarioEntity getById(Long id) throws Exception {
