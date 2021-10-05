@@ -9,34 +9,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pacvbackend.entidade.usuario.UsuarioEntity;
-import com.pacvbackend.entidade.usuario.UsuarioService;
+import com.pacvbackend.entidade.condpagto.CondPagtoEntity;
+import com.pacvbackend.entidade.condpagto.CondPagtoService;
+
 
 @RestController
 @Component
-@RequestMapping("/usuario")
-public class UsuarioController {
-	
+@RequestMapping("/condPagto")
+public class CondPagtoController {
+
 	@Autowired
 	@SuppressWarnings("unused")
-	private UsuarioService service;
+	private CondPagtoService service;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public UsuarioEntity getUsuario(@RequestParam(value="id") Long id) throws Exception {
-			return service.getById(id);
+	public CondPagtoEntity getCondPagto(@RequestParam(value="id") Long id) throws Exception {
+		return service.findById(id);
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public void saveUsuario(@RequestBody UsuarioEntity user) {
+	public void saveCondPagto(@RequestBody CondPagtoEntity condPagto) {
 		try {
-			service.save(user);
+			service.save(condPagto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.DELETE)
-	public void deleteUsuario(@RequestParam(value="id") Long id) {
+	public void deleteCondPagto(@RequestParam(value="id") Long id) {
 		try {
 			service.delete(id);
 		} catch (Exception e) {
@@ -45,9 +46,9 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public void updateUsuario(@RequestParam(value = "id") Long id ,@RequestBody UsuarioEntity user) {
+	public void updateCondPagto(@RequestParam(value = "id") Long id ,@RequestBody CondPagtoEntity condPagto) {
 		try {
-			service.save(user);
+			service.save(condPagto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

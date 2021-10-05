@@ -1,7 +1,9 @@
 package com.pacvbackend.entidade.pedido;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PedidoService {
 	
 	@Autowired
@@ -11,8 +13,8 @@ public class PedidoService {
 		this.repository.save(pedido);
 	}
 	
-	public void delete(PedidoEntity pedido) throws Exception {
-		this.repository.delete(pedido);
+	public void delete(Long id) throws Exception {
+		this.repository.deleteById(id);
 	}
 	
 	public PedidoEntity getById(Long id) throws Exception {

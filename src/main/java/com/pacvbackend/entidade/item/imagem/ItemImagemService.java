@@ -1,7 +1,9 @@
 package com.pacvbackend.entidade.item.imagem;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ItemImagemService {
 	
 	@Autowired

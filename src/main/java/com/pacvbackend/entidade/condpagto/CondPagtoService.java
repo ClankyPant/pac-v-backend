@@ -1,7 +1,9 @@
 package com.pacvbackend.entidade.condpagto;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CondPagtoService {
 	
 	@Autowired
@@ -11,8 +13,8 @@ public class CondPagtoService {
 		this.repository.save(condPagto);
 	}
 	
-	public void delete(CondPagtoEntity condPagto) throws Exception {
-		this.repository.delete(condPagto);
+	public void delete(Long id) throws Exception {
+		this.repository.deleteById(id);
 	}
 	
 	public CondPagtoEntity findById(Long id) throws Exception {		
