@@ -2,7 +2,6 @@ package com.pacvbackend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +18,6 @@ import com.pacvbackend.entidade.item.condPagto.ItemCondPagtoService;
 public class ItemCondPagtoController {
 
 	@Autowired
-	@SuppressWarnings("unused")
 	private ItemCondPagtoService service;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)

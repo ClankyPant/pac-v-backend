@@ -2,7 +2,6 @@ package com.pacvbackend.entidade.pedido;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import com.pacvbackend.entidade.usuario.UsuarioEntity;
 import com.pacvbackend.entidade.utils.AbstractBean;

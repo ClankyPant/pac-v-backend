@@ -2,12 +2,12 @@ package com.pacvbackend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.pacvbackend.entidade.pedido.PedidoEntity;
 import com.pacvbackend.entidade.pedido.PedidoService;
 
@@ -17,7 +17,6 @@ import com.pacvbackend.entidade.pedido.PedidoService;
 public class PedidoController {
 
 	@Autowired
-	@SuppressWarnings("unused")
 	private PedidoService service;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
