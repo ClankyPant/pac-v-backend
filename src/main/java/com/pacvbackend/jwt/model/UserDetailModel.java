@@ -1,4 +1,4 @@
-package com.pacvbackend.security;
+package com.pacvbackend.jwt.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,11 +15,11 @@ import lombok.Setter;
 @Setter
 @Getter
 @SuppressWarnings("serial")
-public class UserDetail implements UserDetails {
+public class UserDetailModel implements UserDetails {
 
 	private Optional<UsuarioEntity> usuarioEntity;
 	
-	public UserDetail(Optional<UsuarioEntity> usuarioEntity) {
+	public UserDetailModel(Optional<UsuarioEntity> usuarioEntity) {
 		this.usuarioEntity = usuarioEntity;
 	}
 	

@@ -1,4 +1,4 @@
-package com.pacvbackend.security;
+package com.pacvbackend.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,13 +13,15 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.pacvbackend.service.DetailUserServiceImpl;
+import com.pacvbackend.jwt.filter.JWTAuthenticatorFilter;
+import com.pacvbackend.jwt.filter.JWTValidatorFilter;
+import com.pacvbackend.jwt.service.UserDetailServiceImpl;
 
 @EnableWebSecurity
 public class JWTConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private DetailUserServiceImpl detailUserService;
+	private UserDetailServiceImpl detailUserService;
 	
 	@Autowired
 	private PasswordEncoder passwordEnconder;

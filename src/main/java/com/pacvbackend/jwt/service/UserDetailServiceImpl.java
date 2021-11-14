@@ -1,4 +1,4 @@
-package com.pacvbackend.service;
+package com.pacvbackend.jwt.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,10 +7,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.pacvbackend.entidade.usuario.UsuarioService;
-import com.pacvbackend.security.UserDetail;
+import com.pacvbackend.jwt.model.UserDetailModel;
 
 @Service
-public class DetailUserServiceImpl implements UserDetailsService {
+public class UserDetailServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UsuarioService usuarioService;
@@ -18,7 +18,7 @@ public class DetailUserServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		try {
-			return new UserDetail(this.usuarioService.getByUsername(username));
+			return new UserDetailModel(this.usuarioService.getByUsername(username));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new UsernameNotFoundException("User not found!");

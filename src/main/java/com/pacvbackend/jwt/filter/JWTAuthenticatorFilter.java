@@ -1,4 +1,4 @@
-package com.pacvbackend.security;
+package com.pacvbackend.jwt.filter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacvbackend.entidade.usuario.UsuarioEntity;
+import com.pacvbackend.jwt.model.UserDetailModel;
 
 public class JWTAuthenticatorFilter extends UsernamePasswordAuthenticationFilter {
 	
@@ -53,7 +54,7 @@ public class JWTAuthenticatorFilter extends UsernamePasswordAuthenticationFilter
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authResult) throws IOException, ServletException {
 		
-		UserDetail userDetail = (UserDetail) authResult.getPrincipal();
+		UserDetailModel userDetail = (UserDetailModel) authResult.getPrincipal();
 		String token = JWT.create()
 						.withSubject(userDetail.getUsername())
 						.withExpiresAt(new Date(System.currentTimeMillis() + 600_000))
