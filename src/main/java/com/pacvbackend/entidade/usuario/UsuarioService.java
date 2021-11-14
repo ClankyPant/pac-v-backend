@@ -1,5 +1,7 @@
 package com.pacvbackend.entidade.usuario;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,14 @@ public class UsuarioService {
 				.stream()
 				.filter(user -> user.getId().equals(id))
 				.findFirst()
-				.orElse(null);
+				.orElse(new UsuarioEntity());
+	}
+	
+	public Optional<UsuarioEntity> getByUsername(String userName) throws Exception {
+		return repository
+				.findAll()
+				.stream()
+				.filter(user -> user.getLogin().equals(userName))
+				.findFirst();
 	}
 }

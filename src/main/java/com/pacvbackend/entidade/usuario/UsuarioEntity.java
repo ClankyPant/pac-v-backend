@@ -1,5 +1,6 @@
 package com.pacvbackend.entidade.usuario;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import com.pacvbackend.entidade.utils.AbstractBean;
@@ -14,6 +15,7 @@ public class UsuarioEntity extends AbstractBean {
 	
 	private String nome;
 	
+	@Column(unique = true)
 	private String login;
 	
 	private String password;
