@@ -45,7 +45,7 @@ public class UsuarioController {
 	@RequestMapping(value = "", method = RequestMethod.PUT)
 	public void updateUsuario(@RequestParam(value = "id") Long id ,@RequestBody UsuarioEntity user) {
 		try {
-			service.save(user);
+			service.update(id, user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

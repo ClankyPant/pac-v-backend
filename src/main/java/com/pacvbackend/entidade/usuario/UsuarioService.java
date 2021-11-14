@@ -20,6 +20,19 @@ public class UsuarioService {
 		repository.save(user);
 	}
 	
+	public void update(Long id, UsuarioEntity user) {
+		UsuarioEntity usuario = this.repository.getById(id);
+		
+		if (usuario != null) {
+			usuario.setNome(user.getNome());
+			usuario.setLogin(user.getLogin());
+			usuario.setPassword(this.encoder.encode(user.getPassword()));
+			usuario.setEmail(user.getEmail());
+			
+			this.repository.save(usuario);
+		}
+	}
+	
 	public void delete(Long id) throws Exception {
 		repository.deleteById(id);
 	}
