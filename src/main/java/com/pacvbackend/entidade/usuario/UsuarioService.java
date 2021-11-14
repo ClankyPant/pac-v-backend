@@ -1,6 +1,7 @@
 package com.pacvbackend.entidade.usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -9,7 +10,11 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
 	
+	@Autowired
+	private PasswordEncoder encoder;
+	
 	public void save(UsuarioEntity user) throws Exception {
+		user.setPassword(this.encoder.encode(user.getPassword()));
 		repository.save(user);
 	}
 	
