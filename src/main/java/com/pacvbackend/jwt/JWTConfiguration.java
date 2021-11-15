@@ -10,8 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.pacvbackend.jwt.filter.JWTAuthenticatorFilter;
 import com.pacvbackend.jwt.filter.JWTValidatorFilter;
@@ -43,15 +43,21 @@ public class JWTConfiguration extends WebSecurityConfigurerAdapter {
 		.addFilter(new JWTAuthenticatorFilter(authenticationManager()))
 		.addFilter(new JWTValidatorFilter(authenticationManager()))
 		.sessionManagement()
-		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and()
+		.cors()
+		.configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
 	}
 
 	@Bean
-	CorsConfigurationSource corsConfigurationSource() {
-		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
-		source.registerCorsConfiguration("/**", corsConfiguration);
-		
-		return source;
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**")
+				.allowedOrigins("*")
+				.allowedMethods("GET", "PUT", "POST", "PATCH", "DELETE", "OPTIONS");
+			}
+		};
 	}
 }
