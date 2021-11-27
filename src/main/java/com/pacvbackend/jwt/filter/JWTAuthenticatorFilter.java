@@ -21,6 +21,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacvbackend.entidade.usuario.UsuarioEntity;
 import com.pacvbackend.jwt.model.UserDetailModel;
+import com.pacvbackend.model.TokenResponseService;
 
 public class JWTAuthenticatorFilter extends UsernamePasswordAuthenticationFilter {
 	
@@ -60,7 +61,7 @@ public class JWTAuthenticatorFilter extends UsernamePasswordAuthenticationFilter
 						.withExpiresAt(new Date(System.currentTimeMillis() + 600_000))
 						.sign(Algorithm.HMAC512(AUTH_PASS));
 		
-		response.getWriter().write(token);
+		response.getWriter().write(new ObjectMapper().writeValueAsString(new TokenResponseService(token)));
 		response.getWriter().flush();
 	}
 }
