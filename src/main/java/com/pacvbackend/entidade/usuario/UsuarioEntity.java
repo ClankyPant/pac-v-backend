@@ -22,6 +22,16 @@ public class UsuarioEntity extends AbstractBean {
 	
 	private String email;
 	
+	private String endCep;
+	
+	private String endereco;
+	
+	private String endCidade;
+
+	private String endComplemento;
+	
+	private Integer endNumero;
+	
 	private Integer nivelAcesso;
 
 }
