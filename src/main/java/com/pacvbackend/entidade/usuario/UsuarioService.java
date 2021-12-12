@@ -49,7 +49,7 @@ public class UsuarioService {
 		UsuarioEntity existingUser = repository.findAll().stream().filter(userStream -> userStream.getLogin().equals(user.getLogin())).findAny().orElse(null);
 		
 		if (existingUser != null) {
-			throw new DuplicateKeyException("O login " + user.getLogin() + " j· est· sendo usado!");
+			throw new DuplicateKeyException("O login " + user.getLogin() + " j√° est√° sendo usado!");
 		}
 	}
 	public void update(Long id, UsuarioEntity user) {
